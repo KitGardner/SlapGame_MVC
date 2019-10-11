@@ -8,4 +8,13 @@ export default class GameController {
     console.log("Hello from the controller");
 
   }
+
+  Slap() {
+    _gameService.DamageEnemy(1);
+    this.Update();
+  }
+  Update() {
+    console.log("Update the UI");
+
+  }
 }

@@ -5,15 +5,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/style.css">
     <title>Document</title>
 </head>
 
 <body>
-
-
-
-
+    <div class="container holographicDisplay">
+        <div class="row d-flex justify-content-center">
+            <!--This row contains the boss picture and stats-->
+            <div class="col-md-3 text-center d-flex align-items-center justify-content-center enemyDisplay hologram">
+                <img class="img-fluid" src="/assets/Grog.png" alt="Villain Image">
+            </div>
+            <div class="col-md-6 col-sm-12 enemyDisplay hologram">
+                <div class="d-flex flex-column justify-content-between flex-fill mt-3">
+                    <h3>Name: <span id="enemyName"></span> </h3>
+                    <div class="progress enemyDisplay" style="height: 3em;">
+                        <h3>Health: &nbsp;</h3>
+                        <div id="healthBar" class="progress-bar bg-danger progress-bar-animated" role="progressbar"
+                            style="width: 80%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="50"><span
+                                id="enemyHealth"></span>
+                        </div>
+                    </div>
+                    <h3>Times Attacked: <span id="attackCount">0</span></h3>
+                    <h3>Modifications: <span id="modifiers"></span>
+                    </h3>
+                </div>
+            </div>
+        </div>
+        <div class="row pt-5">
+            <div class="col-4 offset-1 d-flex flex-column py-5 justify-content-between attackDisplay hologram">
+                <button onclick="SwordSlash()" class="btn-lg">Sword Slash</button>
+                <button onclick="FireBall()" class="btn-lg">Fireball</button>
+                <button onclick="app.gameController.Slap()" class="btn-lg">Slap</button>
+                <button class="btn-lg" onclick="UseItem()">Use Item</button>
+            </div>
+            <div class="col-4 flex-column py-5 itemDisplay hologram justify-content-between ml-3 hidden"
+                id="ruleBreaker">
+                <button onclick="GiveFire()" class="btn-lg">Use Fire</button>
+                <button onclick="GiveArmor()" class="btn-lg">Give Armor</button>
+                <button onclick="GiveExplosive()" class="btn-lg">Attach Explosive</button>
+            </div>
+        </div>
+        <div class="row spacer"></div>
+        <!---Contains the actions player can use to affect the boss-->
+        <div class="row">
+            <div class="col-5 offset-1 pt-5">
+                <button class="mt-5 btn btn-danger hologram" id="ResetButton" onclick="Reset()">Reset</button>
+            </div>
+        </div>
+    </div>
     <script src="app/main.js" type="module"></script>
 </body>
 

@@ -3,6 +3,7 @@ export default class Enemy {
     this.name = name;
     this.maxHealth = maxHealth;
     this.health = health;
+    this.hitCount = 0;
     this.mods = mods;
     console.log("Hello from the enemy");
 
