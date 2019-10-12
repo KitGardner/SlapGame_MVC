@@ -5,6 +5,7 @@ export default class Enemy {
     this.health = health;
     this.hitCount = 0;
     this.mods = mods;
+    this.isDead = false;
     console.log("Hello from the enemy");
 
   }

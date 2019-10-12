@@ -2,6 +2,11 @@ import GameService from "../Services/GameService.js";
 
 let _gameService = new GameService();
 
+let activeModifierIcons = [];
+
+let itemModal = document.getElementById("ruleBreaker");
+
+let modifierList = document.getElementById("modifiers");
 
 export default class GameController {
   constructor() {
@@ -47,10 +52,25 @@ export default class GameController {
     document.getElementById("enemyHealth").textContent = currentEnemyStats.health.toString();
     document.getElementById("attackCount").innerText = currentEnemyStats.hitCount.toString();
     document.getElementById("modifiers").innerHTML = currentEnemyStats.modifiers;
+
+    if (currentEnemyStats.isDead) {
+      if (confirm("You have slain Grog. Would you like to fight him again?")) {
+        this.Reset();
+      }
+    }
   }
 
   CalcHealthBarPercent(maxValue, currentValue) {
     const healthBarScale = 0.8;
     return ((currentValue / maxValue) * healthBarScale) * 100;
+  }
+
+  Reset() {
+    _gameService.ResetEnemy();
+    this.Update();
+  }
+
+  UseItem() {
+    itemModal.classList.contains("d-flex") ? itemModal.classList.remove("d-flex") : itemModal.classList.add("d-flex");
   }
 }

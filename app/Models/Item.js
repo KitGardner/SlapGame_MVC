@@ -6,4 +6,8 @@ export default class Item {
     this.imgUrl = imgUrl;
     console.log(`Hello from the ${name} item!`);
   }
+
+  Copy() {
+    return new Item(this.name, this.modifier, this.lifeSpan, this.imgUrl);
+  }
 }

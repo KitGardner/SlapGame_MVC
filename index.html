@@ -38,20 +38,21 @@
                 <button onclick="app.gameController.SwordSlash()" class="btn-lg">Sword Slash</button>
                 <button onclick="app.gameController.FireBall()" class="btn-lg">Fireball</button>
                 <button onclick="app.gameController.Slap()" class="btn-lg">Slap</button>
-                <button class="btn-lg" onclick="UseItem()">Use Item</button>
+                <button class="btn-lg" onclick="app.gameController.UseItem()">Use Item</button>
             </div>
             <div class="col-4 flex-column py-5 itemDisplay hologram justify-content-between ml-3 hidden"
                 id="ruleBreaker">
-                <button onclick="GiveFire()" class="btn-lg">Use Fire</button>
-                <button onclick="GiveArmor()" class="btn-lg">Give Armor</button>
-                <button onclick="GiveExplosive()" class="btn-lg">Attach Explosive</button>
+                <button onclick="app.gameController.GiveFire()" class="btn-lg">Use Fire</button>
+                <button onclick="app.gameController.GiveArmor()" class="btn-lg">Give Armor</button>
+                <button onclick="app.gameController.GiveBomb()" class="btn-lg">Attach Explosive</button>
             </div>
         </div>
         <div class="row spacer"></div>
         <!---Contains the actions player can use to affect the boss-->
         <div class="row">
             <div class="col-5 offset-1 pt-5">
-                <button class="mt-5 btn btn-danger hologram" id="ResetButton" onclick="Reset()">Reset</button>
+                <button class="mt-5 btn btn-danger hologram" id="ResetButton"
+                    onclick="app.gameController.Reset()">Reset</button>
             </div>
         </div>
     </div>
