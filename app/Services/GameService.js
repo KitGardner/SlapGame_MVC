@@ -25,21 +25,6 @@ export default class GameService {
 
   }
 
-  FormatModifiers() {
-    let modifierTemplate = "";
-    for (let i = 0; i < _enemy.mods.length; i++) {
-      const mod = _enemy.mods[i];
-      modifierTemplate += `
-        <div class="modifierToken">
-          <img src=${mod.imgUrl} class="modifierImg">
-          <span>${mod.modifier}</span>
-        </div>
-      `
-    }
-
-    return modifierTemplate;
-  }
-
   AddMods() {
     let totalModification = 0;
     let modsToDelete = [];
@@ -78,7 +63,7 @@ export default class GameService {
       health: _enemy.health,
       maxHealth: _enemy.maxHealth,
       hitCount: _enemy.hitCount,
-      modifiers: this.FormatModifiers(),
+      modifiers: _enemy.mods,
       isDead: _enemy.isDead
     };
 

@@ -51,7 +51,7 @@ export default class GameController {
     document.getElementById("healthBar").style.width = `${this.CalcHealthBarPercent(currentEnemyStats.maxHealth, currentEnemyStats.health)}%`;
     document.getElementById("enemyHealth").textContent = currentEnemyStats.health.toString();
     document.getElementById("attackCount").innerText = currentEnemyStats.hitCount.toString();
-    document.getElementById("modifiers").innerHTML = currentEnemyStats.modifiers;
+    document.getElementById("modifiers").innerHTML = this.FormatModifiers(currentEnemyStats.modifiers);
 
     if (currentEnemyStats.isDead) {
       if (confirm("You have slain Grog. Would you like to fight him again?")) {
@@ -63,6 +63,21 @@ export default class GameController {
   CalcHealthBarPercent(maxValue, currentValue) {
     const healthBarScale = 0.8;
     return ((currentValue / maxValue) * healthBarScale) * 100;
+  }
+
+  FormatModifiers(mods) {
+    let modifierTemplate = "";
+    for (let i = 0; i < mods.length; i++) {
+      const mod = mods[i];
+      modifierTemplate += `
+        <div class="modifierToken">
+          <img src=${mod.imgUrl} class="modifierImg">
+          <span>${mod.modifier}</span>
+        </div>
+      `
+    }
+
+    return modifierTemplate;
   }
 
   Reset() {
